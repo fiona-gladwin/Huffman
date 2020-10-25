@@ -9,11 +9,11 @@ class TestHuffman(unittest.TestCase):
 
 
 	def test_encode(self):
-		encode("jewel.txt", "jewel.huff")
+		encode("story.txt", "story.huff")
 		assert True
 
 	def test_decode(self):
-		decode("jewel.huff", "jewel_.txt") 
+		decode("story.huff", "story_.txt") 
 		assert True
 
 	def test_get_character_frequency(self):
