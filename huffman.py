@@ -43,6 +43,7 @@ class Huffman:
 		self.codes = {}
 		self.reverse_mapping = {}
 
+
 	def get_character_frequency(self, contents):
 		"""
 		Creates a queue of tuple elements containing the unique character and it's frequency in the input file
@@ -50,6 +51,7 @@ class Huffman:
 		frequency = dict(Counter(contents))
 		self.queue = sorted(frequency.items(), key=operator.itemgetter(1))
 		return self.queue
+
 
 	def make_node_list(self):
 		"""
@@ -59,7 +61,8 @@ class Huffman:
 			a = self.queue.pop(0)
 			newNode = Node(a[0], a[1])
 			self.nodeList.append(newNode)
-	
+
+
 	def insert_node(self, inode):
 		"""
 		Inserts the new node to the list and sorts it
@@ -68,6 +71,7 @@ class Huffman:
 			if inode.key >= node.key:
 				self.nodeList.insert(i, inode)
 				return
+
 
 	def build_huffman_tree(self):
 		"""
@@ -108,7 +112,8 @@ class Huffman:
 
 		self.make_codes(root.left, current_code + '0')
 		self.make_codes(root.right, current_code + '1')
-	
+
+
 	def make_codes_dict(self):
 		"""
 		Creates a dict of character and huffman codes
@@ -151,6 +156,8 @@ class Huffman:
 				decoded_text += character
 				current_code = ""
 		return decoded_text
+
+
 
 def encode(input_file, output_file):
 	print("encoding ", input_file, output_file)
